@@ -20,7 +20,6 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable {
 
-
     @Inject
     lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
