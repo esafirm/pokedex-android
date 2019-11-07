@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.view.View
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupWindow()
         setContentView(R.layout.activity_main)
 
         initializeRecyclerView()
@@ -62,26 +64,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
                 }
             }
         }
+    }
 
-//        viewModel.hasMorePokemon.observe(this) {
-//            it?.let {
-//                if (it) {
-//                    pokemonAdapter?.state = PokemonAdapter.State.LOADING
-//                } else {
-//                    pokemonAdapter?.state = PokemonAdapter.State.NONE
-//                }
-//            }
-//        }
-//
-//        viewModel.loadMoreResult.observe(this) {
-//            it?.let {
-//                when (it) {
-//                    is MainViewModel.Result.Error -> {
-//                        pokemonAdapter?.state = PokemonAdapter.State.RETRY
-//                    }
-//                }
-//            }
-//        }
+    private fun setupWindow() {
+        window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
     }
 
     private fun showDetailDialog(pokemonId: Int) {
