@@ -1,9 +1,9 @@
 package id.devfest.pokedex
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +20,7 @@ import javax.inject.Inject
 /**
  * Created by fathonyfath on 17/03/18.
  */
-class DetailDialog : DialogFragment(), Injectable {
+class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
 
     companion object {
         private val POKEMON_ID_KEY = "PokemonId"
@@ -48,7 +48,7 @@ class DetailDialog : DialogFragment(), Injectable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.DetailDialogTheme)
+        setStyle(androidx.fragment.app.DialogFragment.STYLE_NORMAL, R.style.DetailDialogTheme)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -76,7 +76,7 @@ class DetailDialog : DialogFragment(), Injectable {
         super.onViewCreated(view, savedInstanceState)
 
         toolbar.setNavigationOnClickListener {
-            dialog.dismiss()
+            dialog?.dismiss()
         }
 
         viewModel.fetchPokemonDetails(pokemonId)
@@ -94,7 +94,7 @@ class DetailDialog : DialogFragment(), Injectable {
                     is MainViewModel.Result.Error -> {
                         Handler().postDelayed({
                             Toast.makeText(context, "Check your connection.", Toast.LENGTH_SHORT).show()
-                            dialog.dismiss()
+                            dialog?.dismiss()
                         }, 500)
                         Unit
                     }

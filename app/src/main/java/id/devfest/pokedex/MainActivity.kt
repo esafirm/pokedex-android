@@ -1,11 +1,11 @@
 package id.devfest.pokedex
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import android.view.View
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -22,9 +22,9 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable {
 
     @Inject
-    lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<androidx.fragment.app.Fragment>
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentDispatchingAndroidInjector
+    override fun supportFragmentInjector(): AndroidInjector<androidx.fragment.app.Fragment> = fragmentDispatchingAndroidInjector
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
     private fun initializeRecyclerView() {
         val spanCount = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
 
-        pokemonRecycler.layoutManager = GridLayoutManager(this, spanCount)
+        pokemonRecycler.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, spanCount)
         pokemonAdapter = PokemonAdapter(listOf()) {
             showDetailDialog(it.id)
         }.apply {

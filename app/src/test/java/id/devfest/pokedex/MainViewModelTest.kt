@@ -1,7 +1,7 @@
 package id.devfest.pokedex
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
-import android.arch.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import id.devfest.pokedex.data.repository.PokemonRepository
 import id.devfest.pokedex.model.Detail
 import id.devfest.pokedex.model.Pokemon
