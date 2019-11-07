@@ -1,12 +1,12 @@
 package id.devfest.pokedex
 
-import androidx.lifecycle.ViewModelProviders
 import android.content.res.Configuration
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -43,8 +43,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
         super.onCreate(savedInstanceState)
         setupWindow()
         setContentView(R.layout.activity_main)
+        setupToolbar()
+        setupRecyclerView()
 
-        initializeRecyclerView()
+        fab.setOnClickListener {
+            Toast.makeText(applicationContext, "Add Something!", Toast.LENGTH_SHORT).show()
+        }
 
         viewModel.pokemonList.observe(this) {
             it?.let {
@@ -69,7 +73,20 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
     private fun setupWindow() {
         window.decorView.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+
+    }
+
+    private fun setupToolbar() {
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar) { _, insets ->
+            appbar.setPadding(
+                appbar.paddingLeft,
+                appbar.paddingTop + insets.systemWindowInsetTop,
+                appbar.paddingRight,
+                appbar.paddingBottom
+            )
+            insets.consumeSystemWindowInsets()
+        }
     }
 
     private fun showDetailDialog(pokemonId: Int) {
@@ -77,7 +94,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
         detailDialog.show(supportFragmentManager, DIALOG_TAG)
     }
 
-    private fun initializeRecyclerView() {
+    private fun setupRecyclerView() {
         val spanCount = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
 
         pokemonRecycler.layoutManager = androidx.recyclerview.widget.GridLayoutManager(this, spanCount)
