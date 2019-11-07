@@ -1,14 +1,13 @@
-package id.fathonyfath.pokedex.di.component
+package id.devfest.pokedex.di.component
 
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import id.fathonyfath.pokedex.App
-import id.fathonyfath.pokedex.di.ActivityBuilder
-import id.fathonyfath.pokedex.di.FragmentBuilder
-import id.fathonyfath.pokedex.di.module.AppModule
-import id.fathonyfath.pokedex.di.module.NetModule
+import id.devfest.pokedex.App
+import id.devfest.pokedex.di.ActivityBuilder
+import id.devfest.pokedex.di.module.AppModule
+import id.devfest.pokedex.di.module.NetModule
 import javax.inject.Singleton
 
 /**

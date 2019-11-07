@@ -1,7 +1,7 @@
-package id.fathonyfath.pokedex.data.repository
+package id.devfest.pokedex.data.repository
 
-import id.fathonyfath.pokedex.model.Pokemon
-import id.fathonyfath.pokedex.utils.Either
+import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.utils.Either
 import io.reactivex.Observable
 import io.reactivex.Single
 

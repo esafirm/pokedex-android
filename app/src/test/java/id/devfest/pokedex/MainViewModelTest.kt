@@ -1,11 +1,11 @@
-package id.fathonyfath.pokedex
+package id.devfest.pokedex
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import android.arch.lifecycle.Observer
-import id.fathonyfath.pokedex.data.repository.PokemonRepository
-import id.fathonyfath.pokedex.model.Detail
-import id.fathonyfath.pokedex.model.Pokemon
-import id.fathonyfath.pokedex.model.Profile
+import id.devfest.pokedex.data.repository.PokemonRepository
+import id.devfest.pokedex.model.Detail
+import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.model.Profile
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single

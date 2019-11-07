@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex
+package id.devfest.pokedex
 
 import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
@@ -9,12 +9,12 @@ import android.support.v7.widget.GridLayoutManager
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
-import id.fathonyfath.pokedex.adapter.PokemonAdapter
-import id.fathonyfath.pokedex.di.Injectable
-import id.fathonyfath.pokedex.di.ViewModelFactory
-import id.fathonyfath.pokedex.model.Pokemon
-import id.fathonyfath.pokedex.utils.GridSpacingItemDecoration
-import id.fathonyfath.pokedex.utils.observe
+import id.devfest.pokedex.adapter.PokemonAdapter
+import id.devfest.pokedex.di.Injectable
+import id.devfest.pokedex.di.ViewModelFactory
+import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.utils.GridSpacingItemDecoration
+import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 

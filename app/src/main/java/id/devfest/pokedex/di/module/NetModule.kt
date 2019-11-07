@@ -1,12 +1,12 @@
-package id.fathonyfath.pokedex.di.module
+package id.devfest.pokedex.di.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
-import id.fathonyfath.pokedex.BuildConfig
-import id.fathonyfath.pokedex.data.api.PokeAPI
-import id.fathonyfath.pokedex.utils.PokemonImageGenerator
+import id.devfest.pokedex.BuildConfig
+import id.devfest.pokedex.data.api.PokeAPI
+import id.devfest.pokedex.utils.PokemonImageGenerator
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

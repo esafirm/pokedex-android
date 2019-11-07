@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.utils
+package id.devfest.pokedex.utils
 
 import android.graphics.Rect
 import android.support.v7.widget.RecyclerView

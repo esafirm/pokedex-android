@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.di
+package id.devfest.pokedex.di
 
 import android.app.Activity
 import android.app.Application
@@ -7,12 +7,11 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
-import android.util.Log
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
-import id.fathonyfath.pokedex.App
-import id.fathonyfath.pokedex.di.component.DaggerAppComponent
-import id.fathonyfath.pokedex.di.module.NetModule
+import id.devfest.pokedex.App
+import id.devfest.pokedex.di.component.DaggerAppComponent
+import id.devfest.pokedex.di.module.NetModule
 
 /**
  * Created by fathonyfath on 04/02/18.

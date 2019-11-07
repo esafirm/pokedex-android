@@ -1,7 +1,7 @@
-package id.fathonyfath.pokedex.data.api
+package id.devfest.pokedex.data.api
 
-import id.fathonyfath.pokedex.data.api.response.PokemonDetail
-import id.fathonyfath.pokedex.data.api.response.PokemonList
+import id.devfest.pokedex.data.api.response.PokemonDetail
+import id.devfest.pokedex.data.api.response.PokemonList
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.model
+package id.devfest.pokedex.model
 
 /**
  * Created by fathonyfath on 17/11/17.

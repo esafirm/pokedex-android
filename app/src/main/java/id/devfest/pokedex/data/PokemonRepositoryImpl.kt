@@ -1,12 +1,12 @@
-package id.fathonyfath.pokedex.data
+package id.devfest.pokedex.data
 
-import id.fathonyfath.pokedex.data.api.PokeAPI
-import id.fathonyfath.pokedex.data.repository.PokemonRepository
-import id.fathonyfath.pokedex.data.storage.InMemoryStorage
-import id.fathonyfath.pokedex.model.Detail
-import id.fathonyfath.pokedex.model.Pokemon
-import id.fathonyfath.pokedex.model.Profile
-import id.fathonyfath.pokedex.utils.*
+import id.devfest.pokedex.data.api.PokeAPI
+import id.devfest.pokedex.data.repository.PokemonRepository
+import id.devfest.pokedex.data.storage.InMemoryStorage
+import id.devfest.pokedex.model.Detail
+import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.model.Profile
+import id.devfest.pokedex.utils.*
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers

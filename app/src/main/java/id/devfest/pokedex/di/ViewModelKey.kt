@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.di
+package id.devfest.pokedex.di
 
 import android.arch.lifecycle.ViewModel
 import dagger.MapKey

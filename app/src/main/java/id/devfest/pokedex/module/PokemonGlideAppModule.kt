@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.module
+package id.devfest.pokedex.module
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

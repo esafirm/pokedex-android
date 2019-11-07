@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex
+package id.devfest.pokedex
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

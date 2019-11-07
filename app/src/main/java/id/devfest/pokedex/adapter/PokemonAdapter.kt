@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.adapter
+package id.devfest.pokedex.adapter
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
-import id.fathonyfath.pokedex.R
-import id.fathonyfath.pokedex.model.Pokemon
-import id.fathonyfath.pokedex.module.GlideApp
+import id.devfest.pokedex.R
+import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.module.GlideApp
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 import kotlinx.android.synthetic.main.item_retry.view.*
 

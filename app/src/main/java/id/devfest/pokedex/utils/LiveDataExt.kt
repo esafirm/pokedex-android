@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.utils
+package id.devfest.pokedex.utils
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.LiveData

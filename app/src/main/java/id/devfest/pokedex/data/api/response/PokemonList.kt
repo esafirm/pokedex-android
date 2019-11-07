@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.data.api.response
+package id.devfest.pokedex.data.api.response
 
 import com.google.gson.annotations.SerializedName
 

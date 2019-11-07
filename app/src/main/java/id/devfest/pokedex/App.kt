@@ -1,11 +1,11 @@
-package id.fathonyfath.pokedex
+package id.devfest.pokedex
 
 import android.app.Activity
 import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
-import id.fathonyfath.pokedex.di.AppInjector
+import id.devfest.pokedex.di.AppInjector
 import javax.inject.Inject
 
 /**

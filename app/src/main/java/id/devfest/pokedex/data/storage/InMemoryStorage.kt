@@ -1,6 +1,6 @@
-package id.fathonyfath.pokedex.data.storage
+package id.devfest.pokedex.data.storage
 
-import id.fathonyfath.pokedex.model.Pokemon
+import id.devfest.pokedex.model.Pokemon
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.Subject

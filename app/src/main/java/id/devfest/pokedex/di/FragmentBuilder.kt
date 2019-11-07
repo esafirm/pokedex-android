@@ -1,8 +1,8 @@
-package id.fathonyfath.pokedex.di
+package id.devfest.pokedex.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import id.fathonyfath.pokedex.DetailDialog
+import id.devfest.pokedex.DetailDialog
 
 /**
  * Created by fathonyfath on 21/03/18.

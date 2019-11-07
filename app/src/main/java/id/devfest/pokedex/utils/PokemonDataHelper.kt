@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.utils
+package id.devfest.pokedex.utils
 
 /**
  * Created by fathonyfath on 06/02/18.

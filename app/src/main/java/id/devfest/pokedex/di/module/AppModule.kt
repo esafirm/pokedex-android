@@ -1,15 +1,15 @@
-package id.fathonyfath.pokedex.di.module
+package id.devfest.pokedex.di.module
 
 import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import id.fathonyfath.pokedex.data.PokemonRepositoryImpl
-import id.fathonyfath.pokedex.data.api.PokeAPI
-import id.fathonyfath.pokedex.data.repository.PokemonRepository
-import id.fathonyfath.pokedex.data.storage.InMemoryStorage
-import id.fathonyfath.pokedex.di.ViewModelBuilder
-import id.fathonyfath.pokedex.utils.PokemonImageGenerator
+import id.devfest.pokedex.data.PokemonRepositoryImpl
+import id.devfest.pokedex.data.api.PokeAPI
+import id.devfest.pokedex.data.repository.PokemonRepository
+import id.devfest.pokedex.data.storage.InMemoryStorage
+import id.devfest.pokedex.di.ViewModelBuilder
+import id.devfest.pokedex.utils.PokemonImageGenerator
 import javax.inject.Singleton
 
 /**

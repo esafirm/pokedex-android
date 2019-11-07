@@ -1,11 +1,11 @@
-package id.fathonyfath.pokedex.di
+package id.devfest.pokedex.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import id.fathonyfath.pokedex.MainViewModel
+import id.devfest.pokedex.MainViewModel
 
 /**
  * Created by fathonyfath on 04/02/18.

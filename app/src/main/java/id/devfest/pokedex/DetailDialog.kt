@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex
+package id.devfest.pokedex
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,11 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
-import id.fathonyfath.pokedex.di.Injectable
-import id.fathonyfath.pokedex.di.ViewModelFactory
-import id.fathonyfath.pokedex.model.Detail
-import id.fathonyfath.pokedex.module.GlideApp
-import id.fathonyfath.pokedex.utils.observe
+import id.devfest.pokedex.di.Injectable
+import id.devfest.pokedex.di.ViewModelFactory
+import id.devfest.pokedex.model.Detail
+import id.devfest.pokedex.module.GlideApp
+import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.dialog_detail.*
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package id.fathonyfath.pokedex.di
+package id.devfest.pokedex.di
 
 /**
  * Created by fathonyfath on 21/03/18.
