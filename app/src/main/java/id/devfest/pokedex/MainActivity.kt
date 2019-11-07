@@ -87,6 +87,11 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
             )
             insets.consumeSystemWindowInsets()
         }
+
+        toolbar.setNavigationIcon(R.drawable.ic_menu)
+        toolbar.setNavigationOnClickListener {
+            Toast.makeText(applicationContext, "On nav click", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showDetailDialog(pokemonId: Int) {
