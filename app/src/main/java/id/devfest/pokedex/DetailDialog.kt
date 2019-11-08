@@ -1,18 +1,18 @@
 package id.devfest.pokedex
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import id.devfest.pokedex.di.Injectable
 import id.devfest.pokedex.di.ViewModelFactory
 import id.devfest.pokedex.model.Detail
 import id.devfest.pokedex.module.GlideApp
+import id.devfest.pokedex.utils.FullScreenUtils
 import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.dialog_detail.*
 import javax.inject.Inject
@@ -47,14 +47,16 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setStyle(androidx.fragment.app.DialogFragment.STYLE_NORMAL, R.style.DetailDialogTheme)
+        setStyle(STYLE_NORMAL, R.style.DetailDialogTheme)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        dialog?.window?.attributes?.windowAnimations = R.style.DetailDialogTheme
+        dialog?.run {
+            window?.attributes?.windowAnimations = R.style.DetailDialogTheme
+            FullScreenUtils.apply(window)
+            FullScreenUtils.applyToolbar(toolbar)
+        }
     }
 
     override fun onStart() {

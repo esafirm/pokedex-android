@@ -2,9 +2,9 @@ package id.devfest.pokedex
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjector
@@ -14,6 +14,7 @@ import id.devfest.pokedex.adapter.PokemonAdapter
 import id.devfest.pokedex.di.Injectable
 import id.devfest.pokedex.di.ViewModelFactory
 import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.utils.FullScreenUtils
 import id.devfest.pokedex.utils.GridSpacingItemDecoration
 import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.activity_main.*
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupWindow()
+        FullScreenUtils.apply(window)
         setContentView(R.layout.activity_main)
         setupToolbar()
         setupRecyclerView()
@@ -70,13 +71,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
         }
     }
 
-    private fun setupWindow() {
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-
-    }
-
     private fun setupToolbar() {
         ViewCompat.setOnApplyWindowInsetsListener(toolbar) { _, insets ->
             appbar.setPadding(
@@ -90,7 +84,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 
         toolbar.setNavigationIcon(R.drawable.ic_menu)
         toolbar.setNavigationOnClickListener {
-            Toast.makeText(applicationContext, "On nav click", Toast.LENGTH_SHORT).show()
+            drawer.openDrawer(GravityCompat.START)
         }
     }
 
