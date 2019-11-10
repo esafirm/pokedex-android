@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    val viewModel: MainViewModel by lazy {
+    private val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
     }
 
-    var pokemonAdapter: PokemonAdapter? = null
+    private var pokemonAdapter: PokemonAdapter? = null
 
     companion object {
         const val DIALOG_TAG = "Detail"

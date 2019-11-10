@@ -8,7 +8,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class InMemoryStorage @Inject constructor() {
+class PokemonStorage @Inject constructor(
+    private val pokemonPreference: SimplePokemonPreference
+) {
 
     private val memoryStorage: MutableMap<Int, Pokemon> = mutableMapOf()
     private val subjectMemoryStorage: Subject<MutableMap<Int, Pokemon>> = BehaviorSubject.create()
@@ -28,11 +30,24 @@ class InMemoryStorage @Inject constructor() {
     }
 
     fun getPokemon(pokemonId: Int): Pokemon? {
-        return memoryStorage[pokemonId]
+        val inMemory = memoryStorage[pokemonId]
+        if (inMemory != null && inMemory.detail == null) {
+            val inDisk = pokemonPreference.getPokemon(pokemonId)
+            if (inDisk != null) {
+                memoryStorage[pokemonId] = inDisk
+            }
+            return inDisk
+        }
+        return inMemory
     }
 
-    fun putPokemon(pokemonId: Int, pokemon: Pokemon) {
-        memoryStorage[pokemonId] = pokemon
+    fun putPokemon(pokemon: Pokemon) {
+        pokemonPreference.putPokemon(pokemon)
+        updateAndDispatchData(pokemon)
+    }
+
+    private fun updateAndDispatchData(pokemon: Pokemon) {
+        memoryStorage[pokemon.id] = pokemon
         subjectMemoryStorage.onNext(memoryStorage)
     }
 
@@ -42,8 +57,8 @@ class InMemoryStorage @Inject constructor() {
 
     fun listenToPokemonId(pokemonId: Int): Observable<Pair<Int, Pokemon>> {
         return listenToPokemonMap()
-                .filter { it.containsKey(pokemonId) }
-                .map { pokemonId to it[pokemonId]!! }
+            .filter { it.containsKey(pokemonId) }
+            .map { pokemonId to it[pokemonId]!! }
     }
 
 }

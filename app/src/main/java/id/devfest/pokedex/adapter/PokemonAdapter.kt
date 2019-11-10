@@ -1,10 +1,9 @@
 package id.devfest.pokedex.adapter
 
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import id.devfest.pokedex.R
 import id.devfest.pokedex.model.Pokemon
@@ -16,9 +15,10 @@ import kotlinx.android.synthetic.main.item_retry.view.*
  * Created by fathonyfath on 17/11/17.
  */
 
-class PokemonAdapter(var pokemonList: List<Pokemon>,
-                     private val itemClick: (Pokemon) -> Unit) :
-        androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
+class PokemonAdapter(
+    var pokemonList: List<Pokemon>,
+    private val itemClick: (Pokemon) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val TYPE_ITEM = 0
@@ -50,11 +50,10 @@ class PokemonAdapter(var pokemonList: List<Pokemon>,
         }
     }
 
-    override fun onAttachedToRecyclerView(recyclerView: androidx.recyclerview.widget.RecyclerView) {
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
 
-        val layoutManager = recyclerView.layoutManager
-        when (layoutManager) {
+        when (val layoutManager = recyclerView.layoutManager) {
             is androidx.recyclerview.widget.GridLayoutManager -> layoutManager.spanSizeLookup = object : androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
                     return if (position == pokemonList.size) layoutManager.spanCount else 1
@@ -71,7 +70,7 @@ class PokemonAdapter(var pokemonList: List<Pokemon>,
     }
 
 
-    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ItemViewHolder -> holder.bind(pokemonList[position])
             is RetryViewHolder -> holder.bind()
@@ -85,12 +84,12 @@ class PokemonAdapter(var pokemonList: List<Pokemon>,
         pokemonList.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
 
         return when (viewType) {
             TYPE_ITEM -> ItemViewHolder(inflater.inflate(R.layout.item_pokemon, parent, false), itemClick)
-            TYPE_LOADING -> object : androidx.recyclerview.widget.RecyclerView.ViewHolder(inflater.inflate(R.layout.item_loading, parent, false)) {}
+            TYPE_LOADING -> object : RecyclerView.ViewHolder(inflater.inflate(R.layout.item_loading, parent, false)) {}
             TYPE_RETRY -> RetryViewHolder(inflater.inflate(R.layout.item_retry, parent, false), onRetryClick)
             else -> throw IllegalStateException("Invalid item view type.")
         }
@@ -99,7 +98,7 @@ class PokemonAdapter(var pokemonList: List<Pokemon>,
 
     class ItemViewHolder(view: View,
                          private val itemClick: (Pokemon) -> Unit) :
-            androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
+        RecyclerView.ViewHolder(view) {
 
         fun bind(pokemon: Pokemon) {
             with(pokemon) {
@@ -110,10 +109,7 @@ class PokemonAdapter(var pokemonList: List<Pokemon>,
         }
     }
 
-    class RetryViewHolder(view: View,
-                          private val retryClick: (() -> Unit)?) :
-            androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
-
+    class RetryViewHolder(view: View, private val retryClick: (() -> Unit)?) : RecyclerView.ViewHolder(view) {
         fun bind() {
             itemView.retryButton.setOnClickListener { retryClick?.invoke() }
         }
