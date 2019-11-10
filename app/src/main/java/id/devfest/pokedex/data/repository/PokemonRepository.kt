@@ -15,4 +15,6 @@ interface PokemonRepository {
     fun fetchPokemonDetail(pokemonId: Int): Single<Either<Throwable, Boolean>>
     fun fetchMorePokemon(offsetPokemonId: Int): Single<Either<Throwable, Boolean>>
 
+    fun getFavoritePokemon(): Observable<Pokemon>
+    fun setFavoritePokemon(pokemon: Pokemon): Single<Unit>
 }

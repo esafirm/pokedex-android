@@ -7,6 +7,7 @@ import dagger.Provides
 import id.devfest.pokedex.data.PokemonRepositoryImpl
 import id.devfest.pokedex.data.api.PokeAPI
 import id.devfest.pokedex.data.repository.PokemonRepository
+import id.devfest.pokedex.data.storage.FavoritePokemonStorage
 import id.devfest.pokedex.data.storage.PokemonStorage
 import id.devfest.pokedex.di.ViewModelBuilder
 import id.devfest.pokedex.utils.PokemonImageGenerator
@@ -26,9 +27,15 @@ open class AppModule {
 
     @Provides
     @Singleton
-    fun providePokemonRepository(pokeAPI: PokeAPI,
-                                 pokemonStorage: PokemonStorage,
-                                 pokemonImageGenerator: PokemonImageGenerator): PokemonRepository =
-            PokemonRepositoryImpl(pokeAPI, pokemonStorage, pokemonImageGenerator)
-
+    fun providePokemonRepository(
+        pokeAPI: PokeAPI,
+        pokemonStorage: PokemonStorage,
+        favoritePokemonStorage: FavoritePokemonStorage,
+        pokemonImageGenerator: PokemonImageGenerator
+    ): PokemonRepository = PokemonRepositoryImpl(
+        pokeAPI,
+        pokemonStorage,
+        favoritePokemonStorage,
+        pokemonImageGenerator
+    )
 }

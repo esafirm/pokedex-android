@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,8 +17,11 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/favButton"
+        android:layout_below="@id/toolbar"
         android:orientation="vertical">
 
         <ImageView
@@ -132,7 +135,18 @@
 
         </FrameLayout>
 
-
     </LinearLayout>
 
-</LinearLayout>
+    <com.esafirm.stubutton.StuButton
+        android:id="@+id/favButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        app:stu_background="@drawable/bg_stu"
+        app:stu_label="@string/slide_to_fav"
+        app:stu_thumbDrawable="@drawable/stu_circle_material" />
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package id.devfest.pokedex.data
 
 import id.devfest.pokedex.data.api.PokeAPI
 import id.devfest.pokedex.data.repository.PokemonRepository
+import id.devfest.pokedex.data.storage.FavoritePokemonStorage
 import id.devfest.pokedex.data.storage.PokemonStorage
 import id.devfest.pokedex.model.Detail
 import id.devfest.pokedex.model.Pokemon
@@ -18,8 +19,9 @@ import io.reactivex.schedulers.Schedulers
 class PokemonRepositoryImpl constructor(
     private val pokeAPI: PokeAPI,
     private val pokemonStorage: PokemonStorage,
-    private val pokemonImageGenerator: PokemonImageGenerator)
-    : PokemonRepository {
+    private val favoritePokemonStorage: FavoritePokemonStorage,
+    private val pokemonImageGenerator: PokemonImageGenerator
+) : PokemonRepository {
 
     private val pokemonDetailRequestQueue: MutableSet<Int> = mutableSetOf()
 
@@ -105,4 +107,15 @@ class PokemonRepositoryImpl constructor(
             .observeOn(Schedulers.io())
     }
 
+    /* --------------------------------------------------- */
+    /* > Favorite */
+    /* --------------------------------------------------- */
+
+    override fun getFavoritePokemon() = favoritePokemonStorage.getFavoritePokemon()
+
+    override fun setFavoritePokemon(pokemon: Pokemon): Single<Unit> {
+        return Single.fromCallable {
+            favoritePokemonStorage.setFavoritePokemon(pokemon)
+        }
+    }
 }

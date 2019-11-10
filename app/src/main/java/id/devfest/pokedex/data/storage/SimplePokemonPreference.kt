@@ -10,8 +10,22 @@ class SimplePokemonPreference @Inject constructor(
     private val gson: Gson
 ) {
 
+    companion object {
+        private const val KEY_FAVORITE = "FavPokemon"
+    }
+
     private val preferences by lazy {
         context.getSharedPreferences("Pokemon", Context.MODE_PRIVATE)
+    }
+
+    fun setFavoritePokemon(pokemon: Pokemon) {
+        preferences.edit()
+            .putString(KEY_FAVORITE, gson.toJson(pokemon))
+            .apply()
+    }
+
+    fun getFavoritePokemon(): Pokemon? {
+        return getPokemonFromStorage(KEY_FAVORITE)
     }
 
     fun putPokemon(pokemon: Pokemon) {
@@ -26,7 +40,11 @@ class SimplePokemonPreference @Inject constructor(
     }
 
     fun getPokemon(id: Int): Pokemon? {
-        return preferences.getString(id.toString(), null)?.let {
+        return getPokemonFromStorage(id.toString())
+    }
+
+    private fun getPokemonFromStorage(key: String): Pokemon? {
+        return preferences.getString(key, null)?.let {
             gson.fromJson(it, Pokemon::class.java)
         }
     }

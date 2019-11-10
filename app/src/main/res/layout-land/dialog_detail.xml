@@ -36,18 +36,18 @@
                 android:id="@+id/pokemonDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:layout_gravity="center_vertical"
                 android:weightSum="2">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="4dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -85,10 +85,10 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="4dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -132,8 +132,6 @@
                 android:layout_gravity="center_vertical" />
 
         </FrameLayout>
-
-
     </LinearLayout>
 
 </LinearLayout>

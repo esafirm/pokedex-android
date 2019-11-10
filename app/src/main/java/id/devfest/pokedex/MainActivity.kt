@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -14,6 +15,7 @@ import id.devfest.pokedex.adapter.PokemonAdapter
 import id.devfest.pokedex.di.Injectable
 import id.devfest.pokedex.di.ViewModelFactory
 import id.devfest.pokedex.model.Pokemon
+import id.devfest.pokedex.module.GlideApp
 import id.devfest.pokedex.utils.FullScreenUtils
 import id.devfest.pokedex.utils.GridSpacingItemDecoration
 import id.devfest.pokedex.utils.observe
@@ -68,6 +70,14 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
                     }
                 }
             }
+        }
+
+        viewModel.favoritePokemon.observe(this) {
+            if (it == null || it.isFailure) return@observe
+            GlideApp.with(this)
+                .load(it.getOrThrow().imageUrl)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(imgSide)
         }
     }
 

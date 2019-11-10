@@ -87,6 +87,16 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
                 toolbar.title = "#${it.id} - ${it.name}"
                 GlideApp.with(this).load(it.imageUrl).transition(withCrossFade()).into(pokemonImage)
                 decideDetailOrLoading(it.detail)
+
+                favButton.setOnUnlockListener {
+                    viewModel.setFavoritePokemon(it)
+                    Toast.makeText(
+                        requireContext(),
+                        "${it.name} is your new favorite!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    dialog?.dismiss()
+                }
             }
         }
 
