@@ -89,7 +89,7 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
                 GlideApp.with(this).load(it.imageUrl).transition(withCrossFade()).into(pokemonImage)
                 decideDetailOrLoading(it.detail)
 
-                favButton.setOnUnlockListener {
+                favButton?.setOnUnlockListener {
                     viewModel.setFavoritePokemon(it)
                     Toast.makeText(
                         requireContext(),
