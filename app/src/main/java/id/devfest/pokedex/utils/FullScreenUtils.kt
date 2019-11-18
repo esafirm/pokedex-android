@@ -3,6 +3,7 @@ package id.devfest.pokedex.utils
 import android.view.View
 import android.view.Window
 import androidx.core.view.ViewCompat
+import androidx.core.view.updatePadding
 
 object FullScreenUtils {
     fun apply(window: Window?) {
@@ -13,11 +14,8 @@ object FullScreenUtils {
 
     fun applyToolbar(view: View) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
-            view.setPadding(
-                view.paddingLeft,
-                view.paddingTop + insets.systemWindowInsetTop,
-                view.paddingRight,
-                view.paddingBottom
+            view.updatePadding(
+                top = view.paddingTop + insets.systemWindowInsetTop
             )
             insets.consumeSystemWindowInsets()
         }

@@ -142,9 +142,9 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="20dp"
         app:stu_background="@drawable/bg_stu"
         app:stu_label="@string/slide_to_fav"
         app:stu_thumbDrawable="@drawable/stu_circle_material" />
