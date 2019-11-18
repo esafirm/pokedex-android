@@ -2,7 +2,6 @@ package id.devfest.pokedex
 
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +23,7 @@ import javax.inject.Inject
 class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
 
     companion object {
-        private val POKEMON_ID_KEY = "PokemonId"
+        private const val POKEMON_ID_KEY = "PokemonId"
 
         fun newInstance(pokemonId: Int): DetailDialog {
             val args = Bundle().apply {
@@ -38,11 +37,11 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    val viewModel: MainViewModel by lazy {
+    private val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(requireActivity(), viewModelFactory).get(MainViewModel::class.java)
     }
 
-    val pokemonId: Int by lazy {
+    private val pokemonId: Int by lazy {
         arguments?.getInt(POKEMON_ID_KEY, -1) ?: -1
     }
 
@@ -62,13 +61,11 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
 
     override fun onStart() {
         super.onStart()
-
         dialog?.apply {
             val width = ViewGroup.LayoutParams.MATCH_PARENT
             val height = ViewGroup.LayoutParams.MATCH_PARENT
             window?.setLayout(width, height)
         }
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
