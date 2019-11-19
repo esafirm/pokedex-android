@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 //        setupToolbar()
         setupRecyclerView()
 
-        FullScreenUtils.applyInsetMarks(rootView)
+//        FullScreenUtils.applyInsetMarks(rootView)
 
         fab.setOnClickListener {
             Toast.makeText(applicationContext, "Add Something!", Toast.LENGTH_SHORT).show()
