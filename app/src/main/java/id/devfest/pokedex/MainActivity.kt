@@ -21,7 +21,6 @@ import id.devfest.pokedex.utils.GridSpacingItemDecoration
 import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.toolbar
-import kotlinx.android.synthetic.main.dialog_detail.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable {
