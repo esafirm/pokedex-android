@@ -54,8 +54,9 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
         super.onActivityCreated(savedInstanceState)
         dialog?.run {
             window?.attributes?.windowAnimations = R.style.DetailDialogTheme
-            FullScreenUtils.apply(window)
+            FullScreenUtils.apply(rootView)
             FullScreenUtils.applyToolbar(toolbar)
+            FullScreenUtils.applyInsetMarks(rootView)
         }
     }
 

@@ -20,6 +20,8 @@ import id.devfest.pokedex.utils.FullScreenUtils
 import id.devfest.pokedex.utils.GridSpacingItemDecoration
 import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.toolbar
+import kotlinx.android.synthetic.main.dialog_detail.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable {
@@ -44,10 +46,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FullScreenUtils.apply(window)
         setContentView(R.layout.activity_main)
+        FullScreenUtils.apply(rootView)
         setupToolbar()
         setupRecyclerView()
+
+        FullScreenUtils.applyInsetMarks(rootView)
 
         fab.setOnClickListener {
             Toast.makeText(applicationContext, "Add Something!", Toast.LENGTH_SHORT).show()
