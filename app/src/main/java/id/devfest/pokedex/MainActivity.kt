@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.updatePadding
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.android.AndroidInjector
@@ -46,8 +47,8 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        FullScreenUtils.apply(rootView)
-        setupToolbar()
+//        FullScreenUtils.apply(rootView)
+//        setupToolbar()
         setupRecyclerView()
 
         FullScreenUtils.applyInsetMarks(rootView)
@@ -86,11 +87,8 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector, Injectable
 
     private fun setupToolbar() {
         ViewCompat.setOnApplyWindowInsetsListener(toolbar) { _, insets ->
-            appbar.setPadding(
-                appbar.paddingLeft,
-                appbar.paddingTop + insets.systemWindowInsetTop,
-                appbar.paddingRight,
-                appbar.paddingBottom
+            appbar.updatePadding(
+                top = appbar.paddingTop + insets.systemWindowInsetTop
             )
             insets.consumeSystemWindowInsets()
         }

@@ -40,7 +40,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     // Slide to unlock
-    implementation 'com.github.esafirm:android-stubutton:1.2.1'
+    implementation 'com.github.esafirm:android-stubutton:1.1.0'
 
     // Architecture component
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'

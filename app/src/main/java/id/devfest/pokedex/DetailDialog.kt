@@ -12,7 +12,6 @@ import id.devfest.pokedex.di.Injectable
 import id.devfest.pokedex.di.ViewModelFactory
 import id.devfest.pokedex.model.Detail
 import id.devfest.pokedex.module.GlideApp
-import id.devfest.pokedex.utils.FullScreenUtils
 import id.devfest.pokedex.utils.observe
 import kotlinx.android.synthetic.main.dialog_detail.*
 import javax.inject.Inject
@@ -54,9 +53,9 @@ class DetailDialog : androidx.fragment.app.DialogFragment(), Injectable {
         super.onActivityCreated(savedInstanceState)
         dialog?.run {
             window?.attributes?.windowAnimations = R.style.DetailDialogTheme
-            FullScreenUtils.apply(rootView)
-            FullScreenUtils.applyToolbar(toolbar)
-            FullScreenUtils.applyInsetMarks(rootView)
+//            FullScreenUtils.apply(window?.decorView)
+//            FullScreenUtils.applyToolbar(toolbar)
+//            FullScreenUtils.applyInsetMarks(rootView)
         }
     }
 
